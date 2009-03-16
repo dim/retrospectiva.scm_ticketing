@@ -1,0 +1,10 @@
+Default:
+  id: 1
+  name: Default
+  permissions: |
+    --- 
+    tickets: 
+    - create
+    - update
+    - view
+    - watch

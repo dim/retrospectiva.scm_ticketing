@@ -1,0 +1,33 @@
+ This extension allows Retrospectiva users to update tickets via 
+ SCM log messages.
+ 
+ Usage
+ =====
+ 
+ When you commit changes to your repository, you can automatically
+ update Retrospectiva tickets by using a special syntax in your commit
+ log message.
+ 
+ The 'user', 'status', 'priority' and 'milestone' attributes can be set.
+ Multiple formats are supported. Examples:
+
+   [#1234](status:fixed user:mabs) Fixed a little Bug
+   
+   [#1234] Fixed a little Bug (status:fixed priority:high)
+
+   Fixed a little Bug [#1234](status:assigned milestone:upcoming)
+ 
+ Attribute value with spaces must be put it in double quotes:
+
+   [#1234](status:fixed milestone:"0.9.x (pre-alpha)") Fixed Bug
+
+ Multiple tickets can be updated at the same time.
+
+   [#1234](status:fixed user:dim priority:low) Fixed one problem
+   [#5678](status:fixed user:dim) Fixed another problem
+  
+ Details
+ =======
+
+ Written by Mathew Abonyi (http://www.mathewabonyi.com/)
+ Updated by Dimitrij Denissenko 

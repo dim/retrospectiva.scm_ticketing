@@ -1,0 +1,8 @@
+--- 
+retro:
+  id: 1
+  name: Retrospectiva
+  info: Retrospectiva project
+  closed: false
+  short_name: retrospectiva
+  repository_id: 1

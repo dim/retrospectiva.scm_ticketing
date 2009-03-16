@@ -1,0 +1,5 @@
+svn:
+  name: SVN repository
+  id: 1
+  path: ../../tmp/svn_test
+  type: Repository::Subversion
