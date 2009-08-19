@@ -13,6 +13,13 @@ describe Changeset do
     changeset.should_not be_new_record
     changeset.projects.should have(1).record     
   end
+
+  it 'should retain the original log message' do
+    message = "[##{tickets(:open).id}](status:Fixed user:agent) Added support for on the fly switching between output sample frequencies & the extra desired frequencies (48kHz, 32kHz, 24kHz, 12kHz, 8kHz)."
+    changeset = new_changeset(:log => message)
+    changeset.should_not be_new_record
+    changeset.log.should == message     
+  end
   
   describe 'after a new changeset was created' do
   

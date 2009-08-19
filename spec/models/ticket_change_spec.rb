@@ -99,7 +99,7 @@ describe TicketChange do
 
   end
   
-   describe 'updating priority' do
+  describe 'updating priority' do
     
     it 'should update by name' do
       @change.set_attributes_from_scm_reference(:properties => { 'priority' => 'major' })
@@ -123,5 +123,14 @@ describe TicketChange do
 
   end
   
+  describe 'multiple updates' do
+    
+    it 'should update all attributes' do
+      @change.set_attributes_from_scm_reference( :properties => { 'status' => 'Fixed', 'user' => 'agent' } )      
+      @change.status.should == statuses(:fixed)
+      @change.assigned_user.should == users(:agent)
+    end
+    
+  end
 
 end
