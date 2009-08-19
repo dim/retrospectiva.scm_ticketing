@@ -4,7 +4,7 @@ describe Repository::Abstract do
   fixtures :all
   
   before do
-    @repository = repositories(:svn)    
+    @repository = repositories(:git)    
   end
 
   describe 'bulk synchronization' do

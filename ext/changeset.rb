@@ -19,7 +19,7 @@ Changeset.class_eval do
 
         ticket = Ticket.find :first,
           :conditions => ['id = ? AND project_id IN (?)', reference[:id], projects.active.map(&:id)]
-        
+
         if ticket && user.permitted?(:tickets, :update, :project => ticket.project)
           logger.debug "Updating ticket: #{ticket.id}"
           
@@ -27,7 +27,7 @@ Changeset.class_eval do
             record.user = user
             record.set_attributes_from_scm_reference(reference)
           end
-          
+
           if ticket_change.save
             logger.info "Successfully updated ticket: #{ticket.id}"
           else

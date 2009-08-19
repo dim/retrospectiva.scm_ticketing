@@ -1,5 +1,4 @@
-svn:
-  name: SVN repository
-  id: 1
-  path: ../../tmp/svn_test
-  type: Repository::Subversion
+git:
+  name: GIT repository
+  path: ../../tmp/git_test.git
+  type: Repository::Git

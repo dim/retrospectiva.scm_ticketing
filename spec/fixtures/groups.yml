@@ -1,5 +1,4 @@
 Default:
-  id: 1
   name: Default
   permissions: |
     --- 
@@ -8,3 +7,4 @@ Default:
     - update
     - view
     - watch
+  projects: retro

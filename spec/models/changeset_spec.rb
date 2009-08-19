@@ -4,8 +4,8 @@ describe Changeset do
   fixtures :all
 
   def new_changeset(options = {})
-    options.reverse_merge!(:revision => 'ABCDEFGH', :author => 'agent', :log => '[#1] Fixed Problem (s:fixed u:agent)')
-    repositories(:svn).changesets.create(options)
+    options.reverse_merge!(:revision => 'ABCDEFGH', :author => 'agent', :log => "[##{tickets(:open).id}] Fixed Problem (s:fixed u:agent)")
+    repositories(:git).changesets.create(options)
   end
 
   it 'should create a valid changeset' do
@@ -17,9 +17,11 @@ describe Changeset do
   describe 'after a new changeset was created' do
   
     it 'should update the tickets' do
+      ticket = tickets(:open)
+      ticket.status.should == statuses(:open)
       new_changeset
-      tickets(:open).status.should == statuses(:fixed)
-      tickets(:open).assigned_user.should == users(:agent)      
+      ticket.reload.status.should == statuses(:fixed)
+      ticket.assigned_user.should == users(:agent)      
     end
 
     it 'should NOT update tickets if author cannot be found' do
