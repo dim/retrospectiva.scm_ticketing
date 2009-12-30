@@ -48,7 +48,7 @@ describe Repository::CommitLogParser do
 
     parse("fixed a little bug [#1234] (status :      \"fixed\" assigned :mabs)").should == [
       { :id => 1234, :content => '[REVABC] fixed a little bug', :properties => { 'status' => 'fixed', 'assigned' => 'mabs' } }
-    ]    
+    ]
   end
   
   it 'should correctly parse multiple curly-bracket-blocks' do

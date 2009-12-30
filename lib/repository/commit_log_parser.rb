@@ -30,8 +30,8 @@ class Repository::CommitLogParser
   # Returns a hash of the id, properties and content (comment)
   def parse_line(line)    
     line = line.gsub(TICKET_REF, '')
-    
-    ticket_id = $1.to_i        
+
+    ticket_id = $1.to_i
     return nil if ticket_id.zero?
     
     properties = format_properties(line.scan(PROPERTY_BLOCK))
@@ -43,7 +43,7 @@ class Repository::CommitLogParser
   protected
 
     def format_properties(properties)
-      properties = properties.flatten.map do |value|
+      properties = properties.flatten.compact.map do |value|
         value.gsub(/^['"]/, '').gsub(/['"]$/, '')
       end
       Hash[*properties]

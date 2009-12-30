@@ -18,7 +18,7 @@ describe Repository::Abstract do
     
     it 'should perform correctly' do
       @repository.sync_changesets      
-      @repository.changesets.should have(10).records
+      @repository.changesets.should have(11).records
     end
 
   end
