@@ -50,6 +50,15 @@ describe Repository::CommitLogParser do
       { :id => 1234, :content => '[REVABC] fixed a little bug', :properties => { 'status' => 'fixed', 'assigned' => 'mabs' } }
     ]
   end
+
+  it 'should correctly parse quoted property values' do
+    parse(%Q([#11](status:"Under Development") Fixed a little bug)).should == [
+      { :id => 11, :content => '[REVABC] Fixed a little bug', :properties => { 'status' => 'Under Development' } }
+    ]    
+  end
+
+  
+
   
   it 'should correctly parse multiple curly-bracket-blocks' do
     message = "[#16](status:Fixed user:schmidtw) Added support for on the fly switching between output sample frequencies & the extra desired frequencies (48kHz, 32kHz, 24kHz, 12kHz, 8kHz)."

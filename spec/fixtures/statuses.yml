@@ -9,13 +9,18 @@ assigned:
   rank: 2
   statement_id: 1
   state_id: 2
+under_development:
+  name: Under Development
+  rank: 3
+  state_id: 2
+  statement_id: 1
 invalid:
   name: Invalid
-  rank: 3
+  rank: 4
   statement_id: 3
   state_id: 3  
 fixed:
   name: Fixed
-  rank: 4
+  rank: 5
   statement_id: 1
   state_id: 3
